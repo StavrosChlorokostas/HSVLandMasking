@@ -22,8 +22,12 @@ conda install click
 
 # Running
 ## Introduction
-This is a simple command line tool originally developed for masking out land from satellite RGB video files. The methodology used is a simple frame-by-frame processing procedure utilizing openCV. The pixels are masked with the application of an HSV filter. The user can define the HSV filter parameters along with some optional preprocessing operators such as Gaussial Blur, CLAHE equalization, as well as mask cleanup operators (hole and object removal). These parameters can be decided by the user through an input JSON file.
+This is a simple command line tool originally developed for masking out land from satellite RGB video files. The methodology used is a simple frame-by-frame processing procedure utilizing openCV.
+
+The pixels are masked with the application of an HSV filter. The user can define the HSV filter parameters along with some optional preprocessing operators such as Gaussial Blur, CLAHE equalization, as well as mask cleanup operators (hole and object removal). These parameters can be decided by the user through an input JSON file.
+
 To fine-tune the masking parameters, the user can execute the tool in "guimode". Executing in "guimode" will launch four different windows: one window looping the original video, one window looping the video after frame preprocessing, one window looping the masked video after the application of the hsv filter, one window with trackbars of the HSV parameters. The user can adjust and test his prefered HSV parameters, the results will be displayed in the video windows in real-time. Once the user quits Guimode (default "q" keyboard shortcut), the tool will exit after saving a JSON file with the current HSV filter parameters to the input video parent directory.
+
 The user can then mask the video by executing the tool again and passing the produced JSON into the -hsv variable.
 If a JSON file with HSV parameters is provided and no Output folder is provided (-o), the masking tool will automatically save the masked video in the input video parent directory, appending "_masked" to the output file name.
 The tool assumes the input video is an 8bit rgb video.
